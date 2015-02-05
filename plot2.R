@@ -10,12 +10,12 @@ data <- data[data[,1] %in% c("1/2/2007","2/2/2007"),]
 # FORMAT Date AND Time COLUMNS
 data <- transform(data, DateTime = strptime(paste(data[,1], data[,2]), format="%d/%m/%Y %H:%M:%S"))
 data[,1] <- as.Date(data[,1], format="%d/%m/%Y")
-# SOME QUALITY CHECKS
+# SOME DATA QUALITY CHECKS
 str(data)
 head(data)
 tail(data)
 
-##### CREATE PLOT
+##### CREATE PLOT 2
 png(filename="plot2.png")
 plot(x=data[,ncol(data)], y=data[,3], xlab="", ylab="Global Active Power (kilowatts)", type="l")
 dev.off()
